@@ -1,0 +1,47 @@
+.search {
+	//margin-left: 8rem;
+	display: flex;
+	align-items: center;
+	border-radius: 30px;
+	padding: 0 1rem;
+
+	> div {
+		display: flex;
+		align-items: center;
+	}
+    
+    .bx {
+		padding-right: 10px;
+	}
+
+	input {
+		background-color: transparent;
+		outline: none;
+		color: #000;
+		border: none;
+        width: 0;
+		height: 20px;
+        transition: width 0.4s ease-in-out;
+		border-radius: 10px;
+		opacity: 0.9;
+		&::placeholder {
+			color: #000;
+		}
+       
+	}
+
+    &:hover input {
+        width: 10rem;
+		background-color: #fff;
+    }
+
+
+	i {
+		color: #ccc;
+		font-size: 20px;
+        cursor: pointer;
+
+	}
+}
+
+
