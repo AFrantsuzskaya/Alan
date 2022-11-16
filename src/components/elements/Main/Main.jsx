@@ -1,15 +1,25 @@
+import Carousel from "./Carousel";
 import styles from "./Main.module.scss";
 import { useState } from "react";
 import { DATA } from "../../UI/data";
+import { useEffect } from "react";
 
 const Main = () => {
-  console.log(DATA[0].photos);
+  const [buttonNext, setButtonNext] = useState(false);
+
+  function handleClickButtonNext() {
+    setButtonNext(true);
+    setTimeout(() => {
+      setButtonNext(false);
+    }, 500);
+  }
+
   return (
     <div className={styles.wrapper}>
       <ul>
         <li>
           <a
-            title="YouTobe"
+            title="YouTube"
             className={styles.link_youtube}
             href="https://www.youtube.com/channel/UCjLy1PiPdIX3MhyIOnaHEFA?view_as=subscriber"
           ></a>
@@ -21,33 +31,45 @@ const Main = () => {
           <a title="Написать отзыв" className={styles.link_comment}></a>
         </li>
       </ul>
-      <a className={styles.arrow} href="#link">
+      <button
+        type="button"
+        className={styles.arrow}
+        href="#link"
+        onClick={handleClickButtonNext}
+      >
         <svg
-          class="arrow-circle-icon"
+          className="arrow-circle-icon"
           xmlns="http://www.w3.org/2000/svg"
           width="30"
           height="32"
           viewBox="0 0 20 9"
         >
-          <g
-            fill="none"
-            stroke="#fff"
-            stroke-width="1.5"
-            stroke-linejoin="round"
-          >
+          <g fill="none" stroke="#fff" strokeWidth="1.5" strokeLinejoin="round">
             {/*<circle class="arrow-circle-iconcircle" cx="16" cy="16" r="15.12"></circle>*/}
             <path
-              class="arrow-circle-icon--arrow"
+              className="arrow-circle-icon--arrow"
               d="M0.419,9.000 L0.003,8.606 L4.164,4.500 L0.003,0.394 L0.419,0.000 L4.997,4.500 L0.419,9.000 Z"
             ></path>
           </g>
         </svg>
-      </a>
-      <div
-        className={styles.main}
-        style={{ backgroundImage: `url(${DATA[1].photos})` }}
+      </button>
+      <Carousel
+        buttonNextClick={buttonNext}
+        carouselItems={[
+          <div
+            id="1"
+            style={{ backgroundImage: `url(${DATA[1].photos})` }}
+          ></div>,
+          <div
+            id="2"
+            style={{ backgroundImage: `url(${DATA[0].photos})` }}
+          ></div>,
+          <div
+            id="3"
+            style={{ backgroundImage: `url(${DATA[2].photos})` }}
+          ></div>,
+        ]}
       />
-      
     </div>
   );
 };
