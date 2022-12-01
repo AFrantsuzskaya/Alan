@@ -2,6 +2,7 @@ import styles from "./Main.module.scss";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 const Carousel = ({ carouselItems, buttonNextClick, ...rest }) => {
   const [active, setActive] = useState(0);

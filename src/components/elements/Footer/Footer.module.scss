@@ -1,0 +1,25 @@
+.footer {
+    display: flex;
+    padding: 40px 0;
+
+    .logo {
+        width: 130px;
+        height: 60px;
+    }
+
+}
+
+.footer__copyright {
+    color: #fff;
+    font-weight: 300;
+    font-size: 12px;
+    margin: 3px 5px;
+   
+}
+
+.footer__copyrightBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  padding-left: 10px;
+}

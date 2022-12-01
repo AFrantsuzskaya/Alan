@@ -5,7 +5,6 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    min-width: 80vw;
     width: 100%;
     margin: 0;
 
@@ -14,12 +13,14 @@
     align-items: center;
     justify-content: space-between;
     }
+   
 }
 
 img {
   height: 80px;
-  width: 150px;
-  opacity: .9;
+  width: 100%;
+  //opacity: .9;
+  background-size: cover;
 } 
 .navigation {
   display: flex;
@@ -42,6 +43,6 @@ img {
     //border-bottom: 1px solid #fff;
    // line-height: 0.85;
    text-decoration: underline;
-   text-decoration-thickness: from-font;
+   //border:  1px solid #fff;
   }
 }
