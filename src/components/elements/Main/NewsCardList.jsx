@@ -1,7 +1,7 @@
 import NewsCard from "./NewsCard";
 import styles from "./Main.module.scss";
 import { storiesData } from "../../UI/data";
-const NewsCardList = ({ newsCards }) => {
+const NewsCardList = () => {
   return (
     <section className={styles.cardslist__box}>
       <ul>{storiesData.map((element) => {

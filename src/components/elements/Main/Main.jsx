@@ -8,6 +8,14 @@ import VideoList from "./VideoList";
 
 const Main = () => {
   const [buttonNext, setButtonNext] = useState(false);
+  const [buttonPrevious, setButtonPrevious] = useState(false);
+
+  function handleClickButtonPrevious() {
+    setButtonPrevious(true);
+    setTimeout(() => {
+      setButtonPrevious(false);
+    }, 500);
+  }
 
   function handleClickButtonNext() {
     setButtonNext(true);
@@ -19,7 +27,7 @@ const Main = () => {
   return (
     <div className={styles.main__box}>
       <div className={styles.wrapper}>
-        <ul>
+       {/* <ul>
           <li>
             <a
               title="YouTube"
@@ -33,27 +41,55 @@ const Main = () => {
           <li>
             <a title="Написать отзыв" className={styles.link_comment}></a>
           </li>
-        </ul>
+       </ul>*/}
+       <div className={styles.arrows}>
+       <button
+          type="button"
+          className={`${styles.arrow} ${styles.arrow_left}`}
+          href="#link"
+          onClick={handleClickButtonPrevious}
+        >
+          <svg
+            className="arrow-circle-icon"
+            
+            width="30"
+            height="32"
+            viewBox="0 0 10 9"
+          >
+            <g
+              fill="none"
+              stroke="#fff"
+              strokeWidth="0.5"
+              strokeLinejoin="round"
+            >
+              <path
+                className="arrow-circle-icon--arrow"
+                d="M9.581,9.000 L9.997,8.606 L5.836,4.500 L9.997,0.394 L9.581,0.000 L5.003,4.500 L9.581,9.000 Z"
+                //d="M13.000,2.000 L2.000,7.500 L13.000,13.000 L2.000,7.500 Z"
+
+              ></path>
+            </g>
+          </svg>
+        </button>
         <button
           type="button"
-          className={styles.arrow}
+          className={`${styles.arrow} ${styles.arrow_right}`}
           href="#link"
           onClick={handleClickButtonNext}
         >
           <svg
             className="arrow-circle-icon"
-            xmlns="http://www.w3.org/2000/svg"
+            
             width="30"
             height="32"
-            viewBox="0 0 20 9"
+            viewBox="0 0 10 9"
           >
             <g
               fill="none"
               stroke="#fff"
-              strokeWidth="1.5"
+              strokeWidth="0.5"
               strokeLinejoin="round"
             >
-              {/*<circle class="arrow-circle-iconcircle" cx="16" cy="16" r="15.12"></circle>*/}
               <path
                 className="arrow-circle-icon--arrow"
                 d="M0.419,9.000 L0.003,8.606 L4.164,4.500 L0.003,0.394 L0.419,0.000 L4.997,4.500 L0.419,9.000 Z"
@@ -61,8 +97,10 @@ const Main = () => {
             </g>
           </svg>
         </button>
+        </div>
         <Carousel
           buttonNextClick={buttonNext}
+          buttonPreviousClick={buttonPrevious}
           carouselItems={[
             <div
               id="1"

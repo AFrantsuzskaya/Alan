@@ -13,15 +13,17 @@
     align-items: center;
     justify-content: space-between;
     }
+    img {
+      height: 80px;
+      width: 150px;
+      //max-width: 60%;
+      //opacity: .9;
+      background-size: cover;
+    } 
    
 }
 
-img {
-  height: 80px;
-  width: 100%;
-  //opacity: .9;
-  background-size: cover;
-} 
+
 .navigation {
   display: flex;
   justify-content: space-between;

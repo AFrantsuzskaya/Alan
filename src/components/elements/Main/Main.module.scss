@@ -18,31 +18,24 @@
     background-position: center;
     background-repeat: no-repeat;
     background-origin: content-box;
-    opacity: 0.4;
+    opacity: 0;
     -webkit-transition: opacity 1s, visibility 0s linear 0.5s;
     -moz-transition: opacity 1s, visibility 0s linear 0.5s;
     -o-transition-: opacity 1s, visibility 0s linear 0.5s;
     -ms-transition: opacity 1s, visibility 0s linear 0.5s;
-    transition: opacity 3s ease-out 0s, visibility 3s ease-in-out 0.5s;
+    transition: opacity 3s linear 0s, visibility 3s linear 0s;
+    
   }
 
   .carousel__item_visible {
     opacity: 1;
     visibility: visible;
-    -webkit-transition-delay: 0.2s;
-    -moz-transition-delay: 0.2s;
-    -o-transition-delay: 0.2s;
-    -ms-transition-delay: 0.2s;
-    transition-delay: 0.5s;
-    transition: opacity 3s ease-out 2s, visibility 3s ease-in-out 2s;
-  
+    //transition: opacity 2s revert 2s, visibility 2s revert 0s;
+    //transform-origin: left;
+    //transform: translate(-100%, 50%) rotate(45deg) translate(100%, -50%);
   }
 
   ul {
-    //background-color: rgba(53, 3, 51, 0.8);
-    //background-color: #fff;
-    //background-color: rgba(0, 0, 0, 0.6);
-    //height: 90%;
     height: 16rem;
     margin: 0;
     padding: 0;
@@ -79,26 +72,7 @@
     }
   }
 
-  .link_youtube {
-    background-image: url("../../images/youtube_icon.png");
-    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out,
-      background-color 0.4s ease-in-out, border 0.4s ease-in-out;
-
-    &:hover {
-      background-color: #f00;
-      opacity: 0.9;
-      transform: scale(1.5, 1.5);
-      border: #000;
-    }
-  }
-  .link_email {
-    background-image: url("../../images/email_icon.png");
-  }
-
-  .link_comment {
-    background-image: url("../../images/free-icon-comment-4575445.png");
-  }
-
+  
   .main {
     width: 100%;
     height: 65vh;
@@ -109,63 +83,31 @@
     //  transition: visibility 0.8s ease-in-out;
     // transition: all 0.6s ease;
   }
-  .main::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    --transparentEnd: 40%;
-    --colorStart: 60%;
-    background: linear-gradient(
-      135deg,
-      transparent var(--transparentEnd),
-      var(--colorStart)
-    );
-    background-size: 300% 100%;
-    background-origin: top left;
-    animation: fadeIn 2s ease-out;
-    background-position-x: 0%;
-  }
-  @keyframes fadeIn {
-    0% {
-      background-position-x: 100%;
-    }
-    100% {
-      background-position-x: 0%;
-    }
-  }
+}
 
-  .main.fadeOut::after {
-    animation: fadeOut 2s ease-in;
-    background-position-x: 100%;
-  }
-  @keyframes fadeOut {
-    0% {
-      background-position-x: -150%;
-    }
-    100% {
-      background-position-x: -50%;
-    }
-  }
+.arrows {
+  display: flex;
+  width: 100%;
+  z-index: 3;
+  position: absolute;
+  top: calc(100%/2 - 32px);
+  justify-content: space-between;
+  
 }
 
 .arrow {
-  display: flex;
-  position: absolute;
-  top: 48%;
-  right: 5%;
-  justify-content: center;
-  z-index: 3;
   opacity: 0.8;
   transition: all 0.5s ease-in-out;
   background-color: transparent;
   border: none;
 
-  &.arrow:hover {
+  &.arrow_right:hover {
     opacity: 1;
     transform: translateX(10px);
+  }
+  &.arrow_left:hover {
+    opacity: 1;
+    transform: translateX(-10px);
   }
 }
 
@@ -212,6 +154,7 @@
       //object-fit: cover;
       object-fit: scale-down;
       height: 100%;
+      width: 100%;
     }
     div {
       display: flex;
@@ -262,7 +205,7 @@
 .video {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  //align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
   padding: 20px 0 40px;
 }
@@ -280,7 +223,6 @@
   margin-bottom: 60px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  //justify-content: space-between;
   gap: 10px;
 }
 
@@ -289,3 +231,36 @@
   width: 415px;
   height: 216px;
 }
+
+.buttonMore {
+  width: 5%;
+  height: 20px;
+  display: flex;
+  align-self: end;
+  border: none;
+  background-color: transparent;
+  background-image: url("../../images/r4444.png");
+  background-repeat: no-repeat;
+  transition: transform 0.4s ease-in-out;
+  
+}
+
+.buttonMore:hover{
+ // transform: translateX(10px);
+}
+
+.buttonLess {
+  width: 5%;
+  height: 20px;
+  display: flex;
+  align-self: end;
+  border: none;
+  background-color: transparent;
+  background-image: url("../../images/r4444.png");
+  background-repeat: no-repeat;
+  transform: scaleX(-1)/*rotate(180deg)*/;
+  transform-origin: center;
+  transition: transform 0.1s ease-in-out;
+
+}
+

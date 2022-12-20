@@ -1,15 +1,13 @@
 import styles from "./Main.module.scss";
 import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { useState, useEffect } from "react";
 
-const Carousel = ({ carouselItems, buttonNextClick, ...rest }) => {
+const Carousel = ({ carouselItems, buttonNextClick, buttonPreviousClick, ...rest }) => {
   const [active, setActive] = useState(0);
   let scrollInterval = null;
 
-  React.useEffect(() => {
-    if (buttonNextClick === false) {
+  useEffect(() => {
+    if (buttonNextClick === false && buttonPreviousClick === false) {
       scrollInterval = setTimeout(() => {
         setActive((active + 1) % carouselItems.length);
       }, 6000);
@@ -23,8 +21,13 @@ const Carousel = ({ carouselItems, buttonNextClick, ...rest }) => {
         setActive((active + 1) % carouselItems.length);
       }, 0);
       return () => clearTimeout(scrollInterval);
+    } else if(buttonPreviousClick === true) {
+      scrollInterval = setTimeout(() => {
+        setActive((active + 1) % carouselItems.length);
+      }, 0);
+      return () => clearTimeout(scrollInterval);
     }
-  }, [buttonNextClick]);
+  }, [buttonNextClick, buttonPreviousClick]);
 
   return (
     <div className={styles.main}>

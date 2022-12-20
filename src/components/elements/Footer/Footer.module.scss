@@ -1,6 +1,7 @@
 .footer {
     display: flex;
-    padding: 40px 0;
+    padding: 20px 10px 30px;
+    justify-content: space-between;
 
     .logo {
         width: 130px;
@@ -21,5 +22,46 @@
     display: flex;
     flex-direction: column;
     justify-content: end;
-  padding-left: 10px;
+  
 }
+
+.footer__links {
+  display: flex;
+  justify-content: end;
+  color: #fff;
+  font-weight: 300;
+  width: 25%;
+  
+  
+  ul {
+    list-style: none;
+    text-align: end;
+    margin: 0;
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+
+  
+}
+
+.link_youtube {
+    background-image: url("../../images/youtube_icon.png");
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out,
+      background-color 0.4s ease-in-out, border 0.4s ease-in-out;
+
+    &:hover {
+      background-color: #f00;
+      opacity: 0.9;
+      transform: scale(1.5, 1.5);
+      border: #000;
+    }
+  }
+  .link_email {
+    background-image: url("../../images/email_icon.png");
+  }
+
+  .link_comment {
+    background-image: url("../../images/free-icon-comment-4575445.png");
+  }
